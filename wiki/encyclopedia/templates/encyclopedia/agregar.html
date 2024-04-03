@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Agregar nueva entrada
+{% endblock %}
+
+{% block body %}
+<h1>Agregar nueva entrada</h1>
+<form action="{% url 'agregar' %}" method="POST">
+    {% csrf_token %}
+
+    <label>Título</label>
+    <input type="text" name="titulo">
+    <br>
+    <br>
+
+    <label>Contenido de la entrada</label>
+    <textarea class="form-control" placeholder="Acepta contenido Markdown" name="contenido" rows="10 " cols="4"></textarea>
+    <br>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Resultados de la busqueda
+{% endblock %}
+
+{% block body %}
+<!--Iteramos sobre la lista de entradas relacionadas y mostramos un enlace a cada una de ellas-->
+    <h1>Resultados de la busqueda</h1>
+    {% for entrada in entradas %}
+        <li><a href="{% url 'entrada' titulo=entrada %}">{{ entrada }}</a></li>
+    {% endfor %}
+<!--Comprobamos si la lista de entradas relacionadas no almanacena ningun elemento y retornamos un texto-->
+<!--Podria retornar la plantilla de error?-->
+    {% if entradas|length == 0 %}
+        <p>No se encontraron resultados</p>
+    {% endif %}
+    
+{% endblock %}

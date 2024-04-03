@@ -8,8 +8,8 @@
     <h1>All Pages</h1>
 
     <ul>
-        {% for entry in entries %}
-            <li>{{ entry }}</li>
+        {% for entrada in entries %}
+            <li><a href="{% url 'entrada' titulo=entrada %}">{{ entrada }}</a></li>
         {% endfor %}
     </ul>
 
