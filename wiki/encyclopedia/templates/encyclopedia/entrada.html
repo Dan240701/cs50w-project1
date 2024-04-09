@@ -6,4 +6,12 @@
 
 {% block body %}
     {{ contenido|safe }}
+    <form action="{% url 'editar' titulo=titulo %}" method="GET">
+        {% csrf_token %}
+        <input type="hidden" name="titulo" value="{{ titulo }}">
+        <input type="hidden" name="contenido" value="{{ contenido }}">
+        <br>
+        
+        <button type="submit" class="btn btn-primary">Editar</button>
+    </form>
 {% endblock %}

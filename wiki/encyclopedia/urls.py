@@ -8,6 +8,7 @@ urlpatterns = [
     path("busqueda/", views.busqueda, name="busqueda"),
     path("agregar/", views.agregar, name="agregar"),
     path("ramdon/", views.ramdon_entrada, name="random"),
+    path("editar/<str:titulo>", views.editar, name="editar"),
     
 
 ]

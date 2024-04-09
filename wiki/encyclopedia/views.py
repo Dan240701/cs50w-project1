@@ -15,6 +15,7 @@ def md_to_html(titulo):
    else:
        return md.convert(contenido)   
 
+
 #Funcion que va mostrar el contenido de una entrada o retornar un mensaje de error personalizado si la entrada no existe
 def entrada(request, titulo):  
     contenido_html = md_to_html(titulo)
@@ -73,9 +74,20 @@ def ramdon_entrada(request):
         "contenido": md_to_html(titulo)
     
     })
-  
+#funcion que nos va a permitir editar una entrada
+def editar(request, titulo):
+    if request.method == "POST":
+        contenido = request.POST["contenido"]
+        util.save_entry(titulo, contenido)
+        return HttpResponseRedirect(reverse("entrada", args=[titulo]))
+    else:
+        contenido = util.get_entry(titulo)
+        return render(request, "encyclopedia/editar.html",{
+            "titulo": titulo,
+            "contenido": contenido
+        }) 
+    
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries() 
     })
-
