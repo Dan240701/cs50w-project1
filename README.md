@@ -9,6 +9,6 @@ Las vistas incluyen:
 -	eliminar: Un método adicional que permite a los usuarios eliminar entradas existentes.
 -	md_to_html: Es una función que convierte texto en formato Markdown a HTML.
 
-> Las plantillas **HTML* correspondientes a estas vistas se encuentran en el directorio de plantillas de la aplicación encyclopedia. Estas plantillas utilizan el lenguaje de plantillas de Django para generar HTML dinámico basado en el contexto proporcionado por las vistas.
+> Las plantillas **HTML** correspondientes a estas vistas se encuentran en el directorio de plantillas de la aplicación encyclopedia. Estas plantillas utilizan el lenguaje de plantillas de Django para generar HTML dinámico basado en el contexto proporcionado por las vistas.
 >
 > El método **eliminar** es una adición extra a la funcionalidades básica de nuestra enciclopedia. Este método permite a los usuarios eliminar entradas existentes de la enciclopedia. Cuando un usuario solicita eliminar una entrada, la vista eliminar elimina la entrada de la base de datos y redirige al usuario a la página principal.
