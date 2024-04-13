@@ -91,3 +91,16 @@ def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries() 
     })
+
+#Funcion que nos va a permitir eliminar una entrada
+def eliminar(request, titulo):
+    if request.method == "POST":
+        if util.delete_entry(titulo):
+            return HttpResponseRedirect(reverse("index"))
+        else:
+            return render(request, "encyclopedia/error.html",{
+                "mensaje": f"La entrada {titulo} no pudo ser eliminada."
+            })
+    return render(request, "encyclopedia/eliminar.html",{
+        "titulo": titulo
+    })

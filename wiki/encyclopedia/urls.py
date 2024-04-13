@@ -9,6 +9,7 @@ urlpatterns = [
     path("agregar/", views.agregar, name="agregar"),
     path("ramdon/", views.ramdon_entrada, name="random"),
     path("editar/<str:titulo>", views.editar, name="editar"),
+    path("eliminar/<str:titulo>", views.eliminar, name="eliminar")
     
 
 ]

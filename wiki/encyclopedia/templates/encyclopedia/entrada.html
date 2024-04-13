@@ -6,12 +6,19 @@
 
 {% block body %}
     {{ contenido|safe }}
-    <form action="{% url 'editar' titulo=titulo %}" method="GET">
-        {% csrf_token %}
-        <input type="hidden" name="titulo" value="{{ titulo }}">
-        <input type="hidden" name="contenido" value="{{ contenido }}">
-        <br>
-        
-        <button type="submit" class="btn btn-primary">Editar</button>
-    </form>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; gap: 5px; align-items: flex-start;">
+            <form action="{% url 'editar' titulo=titulo %}" method="GET">
+                {% csrf_token %}
+                <input type="hidden" name="titulo" value="{{ titulo }}">
+                <input type="hidden" name="contenido" value="{{ contenido }}">
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </form>
+            <form action="{% url 'eliminar' titulo=titulo %}" method="GET">
+                {% csrf_token %}
+                <input type="hidden" name="titulo" value="{{ titulo }}">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

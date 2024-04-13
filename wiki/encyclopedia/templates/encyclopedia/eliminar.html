@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ titulo }}
+{% endblock %}
+
+{% block body %}
+    <h1>Esta seguro de eliminar la entrada {{ titulo }}? </h1>
+    <form action="{% url 'eliminar' titulo=titulo %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="titulo" value="{{ titulo }}">
+        <button type="submit" class="btn btn-warning">Eliminar</button>
+    </form>
+{% endblock %}
